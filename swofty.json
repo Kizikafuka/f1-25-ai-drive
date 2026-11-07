@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "id": "kizikafuka.ai-drive",
+  "name": "AI Drive",
+  "version": "1.1.4",
+  "author": "Kizi",
+  "description": "Beta, races only. Press a key and the game's AI drives your car; press again to take over. Can use the AI teammate's setup and skip the pit stop button press. Needs Swofty 1.7.",
+  "license": "MIT",
+  "repository": "https://github.com/Kizikafuka/f1-25-ai-drive",
+  "icon": "icon.png",
+  "category": "ai",
+  "kind": [
+    "native"
+  ],
+  "compat": {
+    "game": "f1_25",
+    "launcher": ">=1.8.19",
+    "game_builds": [
+      ">=25251167"
+    ]
+  },
+  "requires": [
+    {
+      "id": "swofty.core",
+      "version": ">=0.1.0"
+    }
+  ],
+  "options": [
+    {
+      "id": "from_start",
+      "type": "toggle",
+      "label": "Start: AI drives from the start of the race",
+      "description": "On: the AI takes your car by itself a few seconds after the race starts. Off: you press the key yourself. Races only.",
+      "default": false,
+      "binds": "native"
+    },
+    {
+      "id": "hotkey",
+      "type": "choice",
+      "label": "Keys: AI on/off key",
+      "description": "Press it during a session to let the AI drive your car. Press it again to drive yourself. It only works while the game window is in front.",
+      "values": [
+        "F5",
+        "F6",
+        "F7",
+        "F8",
+        "F9",
+        "F10",
+        "F11"
+      ],
+      "default": "F5",
+      "binds": "native"
+    },
+    {
+      "id": "handback",
+      "type": "choice",
+      "label": "Keys: take-over countdown",
+      "description": "When you press the key to drive again: right away, or after a 3 or 5 second countdown with beeps, so you can get ready.",
+      "values": [
+        {
+          "value": "0",
+          "label": "At once"
+        },
+        {
+          "value": "3",
+          "label": "3 second countdown"
+        },
+        {
+          "value": "5",
+          "label": "5 second countdown"
+        }
+      ],
+      "default": "3",
+      "binds": "native"
+    },
+    {
+      "id": "beeps",
+      "type": "toggle",
+      "label": "Sound: beeps",
+      "description": "A beep when the AI takes your car and when you get it back.",
+      "default": true,
+      "binds": "native"
+    },
+    {
+      "id": "no_qte",
+      "type": "toggle",
+      "label": "Pit: no quick-time event while the AI drives",
+      "description": "With Immersive pit stops the game asks for a button press during the stop. The AI can't press it, so the stop came out late. On: the crew just does a normal stop.",
+      "default": true,
+      "binds": "native"
+    },
+    {
+      "id": "ai_setup",
+      "type": "toggle",
+      "label": "Setup: use the AI teammate's setup while the AI drives",
+      "description": "While the AI drives, your car gets the setup values of the AI car that is the same car (differential, brake bias, camber, toe, anti-roll, ride height, ballast). Yours come back when you take over. Wings and tyre pressures can't be changed live.",
+      "default": true,
+      "binds": "native"
+    }
+  ],
+  "operations": {
+    "native": [
+      {
+        "dll": "native/kizi_ai_drive.dll"
+      }
+    ]
+  }
+}
